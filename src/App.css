@@ -20,3 +20,8 @@
   border-radius: 10px;
   font-size: 20px;
 }
+
+.drawn-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
