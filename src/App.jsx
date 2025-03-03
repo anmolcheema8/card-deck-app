@@ -3,14 +3,23 @@ import Card from "./components/Card";
 import './App.css'
 
 function App() {
+  const suits = ["♠", "♥", "♦", "♣"];
+  const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+  const cards = [];
+  for (let suit of suits) {
+    for (let value of values) {
+      cards.push(
+        <Card value={value} suit={suit} />
+      );
+    }
+  }
 
   return (
     <div className="container">
       <h1>Card Deck</h1>
-      <div>
-        <Card value="A" suit="♠️" />
-        <Card value="10" suit="♥️" />
-        <Card value="K" suit="♦️" />
+      <div className="deck">
+        {cards}
       </div>
     </div>
   )
