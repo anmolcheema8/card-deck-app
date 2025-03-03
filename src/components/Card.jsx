@@ -2,8 +2,8 @@ import React from "react";
 
 const Card = ({ value, suit }) => {
   return (
-    <div>
-      <h2>{value}</h2>
+    <div className = "card">
+      <p>{value}</p>
       <p>{suit}</p>
     </div>
   );
