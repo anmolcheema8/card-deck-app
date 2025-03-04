@@ -6,8 +6,7 @@ const Card = ({ value, suit, isPicked, onClick }) => {
       className = {`card ${isPicked ? "picked" : ""} ${suit === '♥' || suit === '♦' ? "red-suit" : "black-suit"}`}
       onClick={onClick}
     >
-      <p>{value}</p>
-      <p>{suit}</p>
+      <p>{value} {suit}</p> 
     </div>
   );
 };
