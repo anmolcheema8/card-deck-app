@@ -17,6 +17,8 @@ const Deck = () => {
     const [pickedCard, setPickedCard] = useState(null);
 
     const drawCard = () => {
+        if (deck.length === 0) return;
+        
         //Selecting a random index
         const randomIndex = Math.floor(Math.random() * deck.length);
         const drawnCard = deck[randomIndex];
@@ -67,6 +69,7 @@ const Deck = () => {
     const tossCard = () => {
         if (pickedCard === null)
             return;
+
         //remove the picked card from drawnCards, also not adding it back to the deck
         //permanent deletion of the card
         const newDrawnCards = drawnCards.filter((_, index) => index !== pickedCard);
@@ -94,7 +97,7 @@ const Deck = () => {
     return (
         <div>
           <div className="deck" onClick={drawCard}>
-            Draw a Card
+            {deck.length > 0 ? "Draw a Card" : "No Cards Remaining"}
           </div>
     
           <div className="drawn-cards">

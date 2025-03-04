@@ -5,9 +5,20 @@
   text-align: center;
 }
 
+.deck {
+  width: 120px;
+  height: 160px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
-  width: 80px;
-  height: 120px;
+  width: 120px;
+  height: 160px;
   border: 1px solid black;
   border-radius: 10px;
   font-size: 20px;
@@ -17,18 +28,12 @@
   border: 3px solid red;
 }
 
-.deck {
-  width: 80px;
-  height: 120px;
-  border: 1px solid black;
-  border-radius: 10px;
-  font-size: 20px;
-}
-
 .drawn-cards {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons {
