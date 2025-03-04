@@ -35,7 +35,7 @@ const Deck = () => {
     };
 
     const dealFiveCards = () => {
-        let newDeck = [...deck];
+        let newDeck = [...deck, ...drawnCards]; //Add drawn cards back to the deck
         let newDrawnCards = [];
 
         for (let i = 0; i < 5; i++) {
@@ -51,7 +51,7 @@ const Deck = () => {
     }
 
     const dealSevenCards = () => {
-        let newDeck = [...deck];
+        let newDeck = [...deck, ...drawnCards]; //Add drawn cards back to the deck
         let newDrawnCards = [];
 
         for (let i = 0; i < 7; i++) {
