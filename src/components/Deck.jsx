@@ -94,6 +94,17 @@ const Deck = () => {
         setDrawnCards(rearrangedCards);
     }
 
+    const addWildcard = () => {
+        // Generate a random suit and value
+        const wildcardSuit = suits[Math.floor(Math.random() * suits.length)];
+        const wildcardValue = values[Math.floor(Math.random() * values.length)];
+
+        const newCard = {suit: wildcardSuit, value: wildcardValue};
+
+        // Add the new card to the drawnCards list
+        setDrawnCards([...drawnCards, newCard]);
+    }
+
     const handleCardSelect = (index) => {
         if (pickedCard === null) { //if no card is already selected, select this one
           setPickedCard(index);
@@ -132,7 +143,7 @@ const Deck = () => {
             <button onClick={resetDeck}>Reset</button>
             <button onClick={tossCard}>Toss</button>
             <button onClick={regroupCards}>Regroup</button>
-            <button>Wildcard</button>
+            <button onClick={addWildcard}>Wildcard</button>
           </div>
         </div>
     );
