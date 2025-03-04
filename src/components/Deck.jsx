@@ -78,6 +78,22 @@ const Deck = () => {
         setPickedCard(null);
     }
 
+    const regroupCards = () => {
+        let rearrangedCards = [...drawnCards];
+
+        for (let i = rearrangedCards.length - 1; i >= 0; i--) {
+            //pick a random card between 0 to i to swap with the current card at index i
+            const j = Math.floor(Math.random() * (i + 1));
+
+            //swap the cards at index i and j
+            let temp = rearrangedCards[i];
+            rearrangedCards[i] = rearrangedCards[j];
+            rearrangedCards[j] = temp;
+        }
+
+        setDrawnCards(rearrangedCards);
+    }
+
     const handleCardSelect = (index) => {
         if (pickedCard === null) { //if no card is already selected, select this one
           setPickedCard(index);
@@ -115,7 +131,7 @@ const Deck = () => {
             <button onClick={dealSevenCards}>Deal 7</button>
             <button onClick={resetDeck}>Reset</button>
             <button onClick={tossCard}>Toss</button>
-            <button>Regroup</button>
+            <button onClick={regroupCards}>Regroup</button>
             <button>Wildcard</button>
           </div>
         </div>
