@@ -45,6 +45,21 @@ const Deck = () => {
         setDrawnCards(newDrawnCards);
     }
 
+    const dealSevenCards = () => {
+        let newDeck = [...deck];
+        let newDrawnCards = [];
+
+        for (let i = 0; i < 7; i++) {
+            const randomIndex = Math.floor(Math.random() * newDeck.length);
+            const drawnCard = deck[randomIndex];
+            newDrawnCards.push(drawnCard);
+            newDeck = newDeck.filter((_, index) => index !== randomIndex);
+        }
+
+        setDeck(newDeck);
+        setDrawnCards(newDrawnCards);
+    }
+
     return (
         <div>
           <div className="deck" onClick={drawCard}>
@@ -59,7 +74,7 @@ const Deck = () => {
 
           <div className="buttons">
             <button onClick={dealFiveCards}>Deal 5</button>
-            <button>Deal 7</button>
+            <button onClick={dealSevenCards}>Deal 7</button>
             <button onClick={resetDeck}>Reset</button>
             <button>Toss</button>
             <button>Regroup</button>
