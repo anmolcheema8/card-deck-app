@@ -74,6 +74,9 @@ const Deck = () => {
           newCards[pickedCard] = newCards[index];
           newCards[index] = temp;
           setDrawnCards(newCards);
+          //reset the state after swapping
+          //also handles the case when the same card is selected i.e. un-highlight the picked card
+          setPickedCard(null);
         }
     };
 
