@@ -25,6 +25,11 @@ const Deck = () => {
         setDeck(deck.filter((_, index) => index !== randomIndex));
     };
 
+    const resetDeck = () => {
+        setDeck(deckOfCards);
+        setDrawnCards([]);
+    };
+
     return (
         <div>
           <div className="deck" onClick={drawCard}>
@@ -40,7 +45,7 @@ const Deck = () => {
           <div className="buttons">
             <button>Deal 5</button>
             <button>Deal 7</button>
-            <button>Reset</button>
+            <button onClick={resetDeck}>Reset</button>
             <button>Toss</button>
             <button>Regroup</button>
             <button>Wildcard</button>
