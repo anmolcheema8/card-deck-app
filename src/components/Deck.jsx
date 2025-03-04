@@ -29,7 +29,7 @@ const Deck = () => {
     };
 
     const resetDeck = () => {
-        setDeck(deckOfCards);
+        setDeck([...deck, ...drawnCards]); //all cards in the list are added back to the deck
         setDrawnCards([]);
         setPickedCard(null);
     };
