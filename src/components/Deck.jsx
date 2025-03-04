@@ -38,7 +38,9 @@ const Deck = () => {
         let newDeck = [...deck, ...drawnCards]; //Add drawn cards back to the deck
         let newDrawnCards = [];
 
-        for (let i = 0; i < 5; i++) {
+        const cardsToDraw = Math.min(5, newDeck.length);
+
+        for (let i = 0; i < cardsToDraw; i++) {
             const randomIndex = Math.floor(Math.random() * newDeck.length);
             const drawnCard = newDeck[randomIndex];
             newDrawnCards.push(drawnCard);
@@ -54,7 +56,9 @@ const Deck = () => {
         let newDeck = [...deck, ...drawnCards]; //Add drawn cards back to the deck
         let newDrawnCards = [];
 
-        for (let i = 0; i < 7; i++) {
+        const cardsToDraw = Math.min(7, newDeck.length);
+
+        for (let i = 0; i < cardsToDraw; i++) {
             const randomIndex = Math.floor(Math.random() * newDeck.length);
             const drawnCard = newDeck[randomIndex];
             newDrawnCards.push(drawnCard);
