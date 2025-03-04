@@ -14,6 +14,7 @@ for (let suit of suits) {
 const Deck = () => {
     const [deck, setDeck] = useState(deckOfCards);
     const [drawnCards, setDrawnCards] = useState([]);
+    const [pickedCard, setPickedCard] = useState(null);
 
     const drawCard = () => {
         //Selecting a random index
@@ -28,6 +29,7 @@ const Deck = () => {
     const resetDeck = () => {
         setDeck(deckOfCards);
         setDrawnCards([]);
+        setPickedCard(null);
     };
 
     const dealFiveCards = () => {
@@ -43,6 +45,7 @@ const Deck = () => {
 
         setDeck(newDeck);
         setDrawnCards(newDrawnCards);
+        setPickedCard(null);
     }
 
     const dealSevenCards = () => {
@@ -58,7 +61,21 @@ const Deck = () => {
 
         setDeck(newDeck);
         setDrawnCards(newDrawnCards);
+        setPickedCard(null);
     }
+
+    const handleCardSelect = (index) => {
+        if (pickedCard === null) { //if no card is already selected, select this one
+          setPickedCard(index);
+        } else {
+          let newCards = [...drawnCards];
+          //swap the previously selected card with the new one
+          let temp = newCards[pickedCard];
+          newCards[pickedCard] = newCards[index];
+          newCards[index] = temp;
+          setDrawnCards(newCards);
+        }
+    };
 
     return (
         <div>
@@ -67,8 +84,12 @@ const Deck = () => {
           </div>
     
           <div className="drawn-cards">
-            {drawnCards.map((card) => (
-              <Card value={card.value} suit={card.suit}/>
+            {drawnCards.map((card, index) => (
+              <Card key={index} //unique identifier for list items
+                    value={card.value}
+                    suit={card.suit} 
+                    isPicked={pickedCard === index}
+                    onClick={() => handleCardSelect(index)}/>
             ))}
           </div>
 
@@ -81,8 +102,6 @@ const Deck = () => {
             <button>Wildcard</button>
           </div>
         </div>
-
-        
     );
 };
 
