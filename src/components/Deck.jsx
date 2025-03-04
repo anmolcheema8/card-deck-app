@@ -64,6 +64,17 @@ const Deck = () => {
         setPickedCard(null);
     }
 
+    const tossCard = () => {
+        if (pickedCard === null)
+            return;
+        //remove the picked card from drawnCards, also not adding it back to the deck
+        //permanent deletion of the card
+        const newDrawnCards = drawnCards.filter((_, index) => index !== pickedCard);
+
+        setDrawnCards(newDrawnCards);
+        setPickedCard(null);
+    }
+
     const handleCardSelect = (index) => {
         if (pickedCard === null) { //if no card is already selected, select this one
           setPickedCard(index);
@@ -75,7 +86,7 @@ const Deck = () => {
           newCards[index] = temp;
           setDrawnCards(newCards);
           //reset the state after swapping
-          //also handles the case when the same card is selected i.e. un-highlight the picked card
+          //also handles the case when the same card is selected i.e. remove highlight from the picked card
           setPickedCard(null);
         }
     };
@@ -100,7 +111,7 @@ const Deck = () => {
             <button onClick={dealFiveCards}>Deal 5</button>
             <button onClick={dealSevenCards}>Deal 7</button>
             <button onClick={resetDeck}>Reset</button>
-            <button>Toss</button>
+            <button onClick={tossCard}>Toss</button>
             <button>Regroup</button>
             <button>Wildcard</button>
           </div>
