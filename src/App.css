@@ -28,6 +28,14 @@
   border: 3px solid red;
 }
 
+.card.black-suit {
+  color: black;
+}
+
+.card.red-suit {
+  color: red
+}
+
 .drawn-cards {
   margin-top: 20px;
   display: flex;
