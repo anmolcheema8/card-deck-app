@@ -40,7 +40,7 @@ const Deck = () => {
 
         for (let i = 0; i < 5; i++) {
             const randomIndex = Math.floor(Math.random() * newDeck.length);
-            const drawnCard = deck[randomIndex];
+            const drawnCard = newDeck[randomIndex];
             newDrawnCards.push(drawnCard);
             newDeck = newDeck.filter((_, index) => index !== randomIndex);
         }
@@ -56,7 +56,7 @@ const Deck = () => {
 
         for (let i = 0; i < 7; i++) {
             const randomIndex = Math.floor(Math.random() * newDeck.length);
-            const drawnCard = deck[randomIndex];
+            const drawnCard = newDeck[randomIndex];
             newDrawnCards.push(drawnCard);
             newDeck = newDeck.filter((_, index) => index !== randomIndex);
         }
