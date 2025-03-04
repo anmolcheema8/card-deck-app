@@ -36,7 +36,18 @@ const Deck = () => {
               <Card value={card.value} suit={card.suit}/>
             ))}
           </div>
+
+          <div className="buttons">
+            <button>Deal 5</button>
+            <button>Deal 7</button>
+            <button>Reset</button>
+            <button>Toss</button>
+            <button>Regroup</button>
+            <button>Wildcard</button>
+          </div>
         </div>
+
+        
     );
 };
 
