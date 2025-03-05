@@ -92,4 +92,17 @@ StAuth10244: I Anmoldeep Singh, 000913075 certify that this material is my origi
 
 .buttons button:hover {
   background-color: #005f99;
+  transform: scale(1.05);
+}
+
+.deck-cards {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.deck-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
